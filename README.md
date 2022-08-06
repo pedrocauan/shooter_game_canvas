@@ -13,4 +13,4 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
     1. [X] - Criar função Draw (desenhar o player na tela)
 1. [X] - Criar a classe Player
 1. [X] - Criar Classe Sphere (esferas que ficam ao redor do player)
-
+    1. [X] - Animação das esferas

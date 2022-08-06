@@ -5,7 +5,7 @@ const cnv = $("canvas")
 
 const playerColor = "#48fcff"
 animationSphere = 0.1 /*Animação em volta do player*/
-cnv.width = innerWidth //largura da tela do navegador
+cnv.width = innerWidth 
 cnv.height = innerHeight
 
 ctx = cnv.getContext("2d") //configura pra trabalhar em 2d
