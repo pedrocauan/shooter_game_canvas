@@ -10,4 +10,4 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
 1. [X] - Estrutura do projeto
 1. [X] - Criar funções de loop e upate
 1. [X] - Criar classe sprite
-1.     [X] - Criar função Draw (desenhar o player na tela)
+    1. [X] - Criar função Draw (desenhar o player na tela)
