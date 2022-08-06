@@ -32,6 +32,7 @@ class Sphere extends Sprite {
         if(Math.abs(this.angle) >= Math.PI*2){
             this.angle = 0
         }
+        console.log(this.angle)
 
         //Distancia da esfera com relação ao player
         this.x = this.player.x  + Math.cos(this.angle) * this.player.radius
@@ -45,6 +46,7 @@ class Sphere extends Sprite {
 class Player extends Sprite {
     constructor(x, y, radius, color) {
         super(x, y, radius, color) //herda os atributos do pai (sprite)
+        this.coreRadius = radius / 6
         //primeira esfera que orbita
         this.s1 = new Sphere(
             this.x + Math.cos(0) * this.radius,
@@ -54,13 +56,27 @@ class Player extends Sprite {
             .08,
             this 
         )
+        this.s2 = new Sphere(
+            this.x + Math.cos(0) * this.radius,
+            this.y + Math.sin(0) * this.radius,
+            2,
+            playerColor,
+            -.08,
+            this
+        )
     }
 
     draw() {
         ctx.beginPath() //Prepara o desenho
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false/*horario ou antihorario*/) //Desenha circulos
+        ctx.arc(this.x, this.y, this.coreRadius, 0, Math.PI * 2, false/*horario ou antihorario*/) //Desenha circulos
         ctx.strokeStyle = this.color //desenha o player como borda
         ctx.stroke() //pinta o player
+    }
+
+    update() {
+        this.draw()
+        this.s1.update()
+        this.s2.update()
     }
 
 }

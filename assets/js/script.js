@@ -4,6 +4,7 @@ const $ = (tag) => document.querySelector(tag)
 const cnv = $("canvas")
 
 const playerColor = "#48fcff"
+animationSphere = 0.1 /*Animação em volta do player*/
 cnv.width = innerWidth //largura da tela do navegador
 cnv.height = innerHeight
 
@@ -20,10 +21,10 @@ function loop(){
 
 //atualiza o jogo
 function update() {
-    ctx.fillStyle = "rgba(0,0,0,1)"
+    ctx.fillStyle = `rgba(0,0,0, ${animationSphere})` /*A opacidade controla */
     ctx.fillRect(0,0, cnv.width, cnv.height)
 
-    player.draw()
+    player.update()
 }
 
 loop()
