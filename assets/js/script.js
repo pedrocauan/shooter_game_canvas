@@ -3,12 +3,13 @@ const $ = (tag) => document.querySelector(tag)
 
 const cnv = $("canvas")
 
+const playerColor = "#48fcff"
 cnv.width = innerWidth //largura da tela do navegador
 cnv.height = innerHeight
 
 ctx = cnv.getContext("2d") //configura pra trabalhar em 2d
 
-const player = new Sprite(cnv.width/2, cnv.height/2, 30, "white")
+const player = new Player(cnv.width/2, cnv.height/2, 30, playerColor)
 
 //repete o jogo
 function loop(){
