@@ -5,4 +5,4 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
 
 ## GITHUB: https://github.com/GustavoASIlveira
 
-## YOUTUBE: https://www.youtube.com/watch?v=hRf-Ol9Rl-8&t=195s
+## TUTORIAL: https://www.youtube.com/watch?v=hRf-Ol9Rl-8&t=195s
