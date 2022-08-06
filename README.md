@@ -6,3 +6,8 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
 ## GITHUB: https://github.com/GustavoASIlveira
 
 ## TUTORIAL: https://www.youtube.com/watch?v=hRf-Ol9Rl-8&t=195s
+
+1. [X] - Estrutura do projeto
+1. [X] - Criar funções de loop e upate
+1. [X] - Criar classe sprite
+1.     [X] - Criar função Draw (desenhar o player na tela)
