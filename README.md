@@ -16,3 +16,4 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
     1. [X] - Animação das esferas
 1. [X] - Classe Projectile (projeteis disparados quando o player clica na tela)
     1. [X] - Animação dos projéteis.
+    1. [X] - Criar função CheckOutScreen (remove o  projetil do jogo depois que ele sai da tela)
