@@ -15,18 +15,7 @@ class Sprite {
     }
 }
 
-class Projectile extends Sprite {
-    constructor(x,y,radius, color, velocity) {
-        super(x,y,radius,color)
-        this.velocity = velocity
-    }
 
-    update(){
-        this.draw()
-        this.x += this.velocity.x 
-        this.y += this.velocity.y 
-    }
-}
 //Esferas que se movem ao redor do player
 class Sphere extends Sprite {
     constructor(x, y, radius, color, angleUpdateValue, player) {
@@ -44,7 +33,6 @@ class Sphere extends Sprite {
         if(Math.abs(this.angle) >= Math.PI*2){
             this.angle = 0
         }
-        console.log(this.angle)
 
         //Distancia da esfera com relação ao player
         this.x = this.player.x  + Math.cos(this.angle) * this.player.radius
@@ -91,4 +79,32 @@ class Player extends Sprite {
         this.s2.update()
     }
 
+}
+
+//Tiros do player
+class Projectile extends Sprite {
+    constructor(x,y,radius, color, velocity) {
+        super(x,y,radius,color)
+        this.velocity = velocity
+    }
+
+    update(){
+        this.draw()
+        this.x += this.velocity.x 
+        this.y += this.velocity.y 
+    }
+}
+
+//inimigos na tela
+class Enemy extends Projectile {
+    constructor(x,y,radius,color, velocity)
+    super(x,y,radius,color,radius, velocity)
+
+    draw(){
+        ctx.beginPath()
+        ctx.arc(this.x,this.y,this.radius, 0, Math.PI * 2, false)
+
+        ctx.strokeStyle = this.color
+        ctx.stroke()
+    }
 }

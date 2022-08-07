@@ -11,9 +11,10 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
 1. [X] - Criar funções de loop e upate
 1. [X] - Criar classe Sprite
     1. [X] - Criar função Draw (desenhar o player na tela)
-1. [X] - Criar a classe Player
+1. [X] - Criar Classe Player
 1. [X] - Criar Classe Sphere (esferas que ficam ao redor do player)
     1. [X] - Animação das esferas
 1. [X] - Classe Projectile (projeteis disparados quando o player clica na tela)
     1. [X] - Animação dos projéteis.
     1. [X] - Criar função CheckOutScreen (remove o  projetil do jogo depois que ele sai da tela)
+1. [X] - Criar Classe Enemies (cria os inimigos) 
