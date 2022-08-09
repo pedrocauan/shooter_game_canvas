@@ -19,4 +19,5 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
     1. [X] - Criar função CheckOutScreen (remove o  projetil do jogo depois que ele sai da tela)
 1. [X] - Criar Classe Enemies (cria os inimigos) 
     1. [X] - Função  spawnEnemies (joga os inimigos na tela) 
+    1. [X] - Excluir projétil e inimigo quando eles colidem
 
