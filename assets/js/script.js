@@ -121,6 +121,20 @@ function checkProjectiles(){
         const p = projectiles[i]
         p.update()
         checkOutScreen(p, i)
+
+        //Destroi o inimigo e o projetil quando eles colidem
+        for(let eIndex = enemies.length -1; eIndex >= 0; eIndex--){
+            const enemy = enemies[eIndex]
+            //Distancia do projetil para o inimigo
+            const distance = Math.hypot(p.x - enemy.x, p.y - enemy.y)
+            
+            //remove o player e o projetil quando eles colidem
+            if(distance < p.radius + enemy.radius){
+                enemies.splice(eIndex, 1)
+                projectiles.splice(i, 1)
+            }
+
+        }
     }
 }
 
