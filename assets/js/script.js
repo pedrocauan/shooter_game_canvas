@@ -112,6 +112,14 @@ function update() {
 function checkEnemies() {
     enemies.forEach((enemy) => {
         enemy.update()
+
+        //distancia entre o inimigo e o player
+        const distance = Math.hypot(player.x - enemy.x, player.y - enemy.y)
+
+        //da game over quando o inimigo colide com o player
+        if(distance < player.radius + enemy.radius){
+         alert("perdestes")
+        }
     })
 }
 
