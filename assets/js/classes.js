@@ -30,13 +30,13 @@ class Sphere extends Sprite {
         this.angle += this.angleUpdateValue
 
         // Evita que o jogo coma a memória toda do navegador
-        if(Math.abs(this.angle) >= Math.PI*2){
+        if (Math.abs(this.angle) >= Math.PI * 2) {
             this.angle = 0
         }
 
         //Distancia da esfera com relação ao player
-        this.x = this.player.x  + Math.cos(this.angle) * this.player.radius
-        this.y = this.player.y  + Math.sin(this.angle) * this.player.radius
+        this.x = this.player.x + Math.cos(this.angle) * this.player.radius
+        this.y = this.player.y + Math.sin(this.angle) * this.player.radius
 
     }
 
@@ -54,7 +54,7 @@ class Player extends Sprite {
             2,
             playerColor,
             .08,
-            this 
+            this
         )
         this.s2 = new Sphere(
             this.x + Math.cos(0) * this.radius,
@@ -83,28 +83,27 @@ class Player extends Sprite {
 
 //Tiros do player
 class Projectile extends Sprite {
-    constructor(x,y,radius, color, velocity) {
-        super(x,y,radius,color)
+    constructor(x, y, radius, color, velocity) {
+        super(x, y, radius, color)
         this.velocity = velocity
     }
 
-    update(){
+    update() {
         this.draw()
-        this.x += this.velocity.x 
-        this.y += this.velocity.y 
+        this.x += this.velocity.x
+        this.y += this.velocity.y
     }
 }
 
 //inimigos na tela
 class Enemy extends Projectile {
-    constructor(x,y,radius,color, velocity)
-    super(x,y,radius,color,radius, velocity)
-
-    draw(){
+    constructor(x, y, radius, color, velocity) {
+        super(x, y, radius, color, velocity)
+    }
+    draw() {
         ctx.beginPath()
-        ctx.arc(this.x,this.y,this.radius, 0, Math.PI * 2, false)
-
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         ctx.strokeStyle = this.color
         ctx.stroke()
-    }
+    }   
 }

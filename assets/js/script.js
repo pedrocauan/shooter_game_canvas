@@ -16,6 +16,7 @@ const shootingSpeed = 4 //Velocidade que o projetil se move
 const sizeProjectile = 3
 
 /*==== PLAYER === */
+
 /*Tamanho do player*/
 const playerSize = 30
 
@@ -23,9 +24,56 @@ const playerSize = 30
 const posX = cnv.width/2
 const posY = cnv.height/2
 
+/*== ENEMIES ==*/
+const enemies = []
+let intervalID
+
+
 ctx = cnv.getContext("2d") //configura pra trabalhar em 2d
 
 const player = new Player(posX, posY, playerSize, playerColor)
+
+function spawnEnemies() {
+    intervalID = setInterval( () =>{
+         //tamanho do inimigo
+        const radius  = Math.floor(Math.random() * 26) + 5
+        //Ṕosição do inimigo na tela
+
+        /* x recebe um valor aleatorio entre 0 e a largura da tela*/
+        /*
+           - O inimigo recebe uma posição aleatoria em X
+           - Ele precisa estar ACIMA do limite superior ou ABAIXO do limite inferior da tela
+          
+           - O inimigo recebe uma posição aleatória em Y
+           - Ele PRECISA ESTAR ABAIXO  do LIMITE INFERIOR da tela -> (ESQUERDA DA TELA) 
+           - Ele PRECISA ESTAR ACIMA do LIMITE SUPERIOR da tela  -> (DIREITA DA TELA)
+           */
+
+        /* */
+        let posX, posY
+
+        /* 0.5 = porcentagem de spawn*/
+        //determina a  posição do inimigo em cima e em baixo
+        if(Math.random() < .5){
+            posX = Math.random() < 0.5 ? 0 - radius: cnv.width + radius  
+            posY = Math.random() * cnv.height
+        //determina a  posição do inimigo na direita e na esquerda
+        } else {
+            posX = Math.random() * cnv.width
+            posy = Math.random() < 0.5 ? 0 - radius: cnv.height + radius  
+        }
+        //Angulo do inimigo em relação ao player
+        const angle = Math.atan2(player.y - posY, player.x - posX)
+        const velocity = {
+            x: Math.cos(angle),
+            y: Math.sin(angle)
+        }
+
+        // cor dos inimigos
+        const color = `hsl(${Math.random() * 360}, 50%, 50%)`
+        enemies.push(new Enemy(posX, posY, radius, color, velocity))
+    }, 1500)
+}
 
 cnv.addEventListener("click", (e) => {
     e.preventDefault()
@@ -47,6 +95,7 @@ cnv.addEventListener("click", (e) => {
 function loop(){
     //mantem a taxa de fps em 60 (varia do hardware)
     requestAnimationFrame(loop, cnv) 
+
     update()
 }
 
@@ -56,8 +105,14 @@ function update() {
     ctx.fillRect(0,0, cnv.width, cnv.height)
 
     player.update()
+    checkEnemies()
     checkProjectiles()
+}
 
+function checkEnemies() {
+    enemies.forEach((enemy) => {
+        enemy.update()
+    })
 }
 
 function checkProjectiles(){
@@ -108,7 +163,7 @@ function checkOutScreen(projectile, index) {
 }
 
 loop()
-
+spawnEnemies()
 
 
 
