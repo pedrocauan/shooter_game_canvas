@@ -108,6 +108,7 @@ function update() {
     player.update()
     checkEnemies()
     checkProjectiles()
+    checkParticles()
 }
 
 function checkEnemies() {
@@ -158,6 +159,17 @@ function createParticles(enemy, projectile) {
         }
 
         particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, velocity))
+    }
+}
+
+function checkParticles(){
+    for(let i = particles.length -1; i >= 0; i--){
+        const p = particles[i]
+        p.update()
+
+        if(p.alpha <= 0){
+            particles.splice(i, 1)
+        }
     }
 }
 

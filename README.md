@@ -23,6 +23,7 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
     1. [X] - Excluir projétil e inimigo quando eles colidem
     1. [X] - Tela de game over quando o player e o inimigo colidem
 1. [X] - Criar classe Particle (Particulas do inimigo destruído)
-    1. [X] - função createParticle (Particulas do inimigo destruído)
+    1. [X] - Função createParticle (Cria as particulas no inimigo destruído)
+    1. [X] - Função checkParticles (Joga as particulas na tela quando ele colide com o tiro)
 
 
