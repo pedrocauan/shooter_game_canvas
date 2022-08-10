@@ -27,6 +27,7 @@ const posY = cnv.height/2
 /*== ENEMIES ==*/
 const enemies = []
 let intervalID
+let particles =[] //Particulas do inimigo destruído
 
 
 ctx = cnv.getContext("2d") //configura pra trabalhar em 2d
@@ -136,13 +137,27 @@ function checkProjectiles(){
             //Distancia do projetil para o inimigo
             const distance = Math.hypot(p.x - enemy.x, p.y - enemy.y)
             
-            //remove o player e o projetil quando eles colidem
+            //Colisão do projetil com o inimigo
             if(distance < p.radius + enemy.radius){
+                //remove o player e o projetil quando eles colidem
                 enemies.splice(eIndex, 1)
                 projectiles.splice(i, 1)
+
+                createParticles(enemy, p)
             }
 
         }
+    }
+}
+
+function createParticles(enemy, projectile) {
+    for(let i = 0; i < enemy.radius * 2; i++){
+        const velocity = {
+            x: (Math.random() - 0.5) * (Math.random() * 6),
+            y: (Math.random() - 0.5) * (Math.random() * 6)
+        }
+
+        particles.push(new Particle(projectile.x, projectile.y, Math.random() * 2, enemy.color, velocity))
     }
 }
 
