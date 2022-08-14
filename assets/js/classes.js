@@ -99,13 +99,29 @@ class Projectile extends Sprite {
 class Enemy extends Projectile {
     constructor(x, y, radius, color, velocity) {
         super(x, y, radius, color, velocity)
+        this.newRadius = radius
     }
+
+    //Encolhe o inimigo quando o tiro acerta nele
+    shrink() {
+        if(this.newRadius < this.radius)
+            this.radius -= 0.5
+        
+    }
+
     draw() {
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
         ctx.strokeStyle = this.color
         ctx.stroke()
     }   
+
+    update() {
+        this.shrink()
+        this.draw()
+        this.x += this.velocity.x
+        this.y += this.velocity.y
+    }
 }
 
 class Particle extends Projectile {
