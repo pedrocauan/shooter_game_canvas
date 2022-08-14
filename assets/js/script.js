@@ -5,6 +5,8 @@ const cnv = $("canvas")
 /*Tamanho da tela*/
 cnv.width = innerWidth 
 cnv.height = innerHeight
+const txtScore = $("#txtScore")
+let score = 0
 
 /*== Configurações de animação == */
 const playerColor = "#48fcff"
@@ -88,7 +90,7 @@ cnv.addEventListener("click", (e) => {
     }
 
     projectiles.push(new Projectile(player.x, player.y, sizeProjectile, playerColor, velocity))
-    console.log(projectiles.length)
+    //console.log(projectiles.length)
 })
 
 
@@ -150,13 +152,20 @@ function checkProjectiles(){
                     //remove o player e o projetil quando eles colidem
                     enemies.splice(eIndex, 1)
                     projectiles.splice(i, 1)
+
+                    //Score do  de acordo com o tamanho do inimigo
                 }
+                score += 50 - Math.floor(enemy.radius)
+                txtScore.innerHTML = `SCORE: ${score}`
+                console.log(score)
+                
                 createParticles(enemy, p)
             }
 
         }
     }
 }
+
 
 function createParticles(enemy, projectile) {
     for(let i = 0; i < enemy.radius * 2; i++){

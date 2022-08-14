@@ -28,5 +28,6 @@ Este projeto foi desenvolvido pelo Gustavo Silveira que adaptou o projeto para u
     1. [X] - Função checkParticles (Joga as particulas na tela quando ele colide com o tiro)
 1. [] - Criar Score (pontuação)
     1. [X] - Estilização e posicionamento
+    1. [X] - Lógica do score
 
 
