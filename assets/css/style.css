@@ -6,4 +6,19 @@
 
 body {
     background-color: black;
+    font-family: sans-serif;
+    color: white;
+    cursor: crosshair;
+}
+
+#txtScore {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    font-weight: bold;
+    text-shadow: 0 0 8px #48fcff;
+    user-select: none; /*Tira o cursor*/
+
+    top: 5%;
+    left: 50%;
 }
