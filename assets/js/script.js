@@ -140,10 +140,17 @@ function checkProjectiles(){
             
             //Colisão do projetil com o inimigo
             if(distance < p.radius + enemy.radius){
-                //remove o player e o projetil quando eles colidem
-                enemies.splice(eIndex, 1)
-                projectiles.splice(i, 1)
-
+                //Diminui o tamanho do enemy quando o projetil acerta
+                if(enemy.radius > 15 ){
+                    enemy.newRadius = enemy.radius - 10
+                    projectiles.splice(i, 1)
+                }
+                //remove o enemy quando o radio é menor que 15
+                else {
+                    //remove o player e o projetil quando eles colidem
+                    enemies.splice(eIndex, 1)
+                    projectiles.splice(i, 1)
+                }
                 createParticles(enemy, p)
             }
 

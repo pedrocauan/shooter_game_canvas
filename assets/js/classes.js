@@ -102,12 +102,6 @@ class Enemy extends Projectile {
         this.newRadius = radius
     }
 
-    //Encolhe o inimigo quando o tiro acerta nele
-    shrink() {
-        if(this.newRadius < this.radius)
-            this.radius -= 0.5
-        
-    }
 
     draw() {
         ctx.beginPath()
@@ -115,6 +109,11 @@ class Enemy extends Projectile {
         ctx.strokeStyle = this.color
         ctx.stroke()
     }   
+    //Encolhe o inimigo quando o tiro acerta nele
+    shrink() {
+        if(this.newRadius < this.radius)
+            this.radius -= 0.5     
+    }
 
     update() {
         this.shrink()
