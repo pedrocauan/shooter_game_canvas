@@ -198,6 +198,11 @@ function checkOutScreen(projectile, index) {
       //Ve se o projetil ta fora da tela  pela margem esquerda
       if(projectile.x  + projectile.radius < 0)
       {
+        //Tira pontuação se o jogador erra o tiro
+        score -= 100
+        if(score < 0)
+            score = 0
+        txtScore.innerHTML = `SCORE: ${score}`
         //Tira o projetil da tela
         projectiles.splice(index, 1)
         return
@@ -206,14 +211,21 @@ function checkOutScreen(projectile, index) {
       //Ve se o projetil saiu da tela pela margem direita
       if(projectile.x - projectile.radius > cnv.width)
       {
+        score -= 100
+        if(score < 0)
+            score = 0
+        txtScore.innerHTML = `SCORE: ${score}`
         projectiles.splice(index, 1)
-
         return
       }
 
       //Ve se o projetil saiu da tela pela margem superior
       if(projectile.y + projectile.radius < 0)
       {
+        score -= 100
+        if(score < 0)
+            score = 0
+        txtScore.innerHTML = `SCORE: ${score}`
         projectiles.splice(index, 1)
         return
       }
@@ -221,6 +233,10 @@ function checkOutScreen(projectile, index) {
       //Ve se o projetil saiu da tela pela margem superior 
       if(projectile.y - projectile.radius > cnv.height)
       {
+        score -= 100
+        if(score < 0)
+            score = 0
+        txtScore.innerHTML = `SCORE: ${score}`
         projectiles.splice(index, 1)
         return
       }
